@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>📊 全站情报聚合 · 股市六法简报</title>
+    <title>🎭 UZI 深度报告</title>
     <link>https://fumolan.github.io/uzi-reports/</link>
     <atom:link href="https://fumolan.github.io/uzi-reports/rss.xml" rel="self" type="application/rss+xml"/>
-    <description>全站情报聚合 — AI Agent 自动生成</description>
+    <description>🎭 UZI 深度报告 — AI Agent 自动生成</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Aug 2026 22:33:02 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 22:46:51 +0800</lastBuildDate>
     <generator>my-bot build_rss.py</generator>
     <item>
       <title>[个股深度报告] 2026-08-25-中国银行601988</title>
-      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-中国银行601988.md</link>
-      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-中国银行601988.md</guid>
+      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-中国银行601988-完整报告.html</link>
+      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-中国银行601988-完整报告.html</guid>
       <pubDate>Tue, 25 Aug 2026 08:00:00 +0800</pubDate>
-      <description>体检 61 分 · 观望偏多 ｜ 2 派看多 / 2 派看空 ｜ 41 位评委参与：5 强买 · 6 买入 · 6 观察 · 19 观望 · 5 回避 📋 首次覆盖结论： DCF 低估 54% · LBO IRR 22% — 双重信号看多 🛡️ 杀猪盘检测：🟡🟡 注意 ｜ 投票分布：看多 11 / 中性 25 / 回避 5 📊 打开完整交互报告（Bloomberg 风格 HTML） (2026 08 25 中国银行601988 完整报告.html) 与比亚迪的&quot;价值派独捧&quot;不同，中国银行出现了 技术派与深度价值派罕见同框 ：年内 +13% 的上行趋势让 Stage 2 动量党全员满分，PE 8…</description>
+      <description>体检 61 分 · 观望偏多 ｜ 2 派看多 / 2 派看空 ｜ 41 位评委参与：5 强买 · 6 买入 · 6 观察 · 19 观望 · 5 回避 📋 首次覆盖结论： DCF 低估 54% · LBO IRR 22% — 双重信号看多 🛡️ 杀猪盘检测：🟡🟡 注意 ｜ 投票分布：看多 11 / 中性 25 / 回避 5 📊 打开完整交互报告（Bloomberg 风格 HTML） (https://fumolan.github.io/uzi reports/reports/uzi/2026 08 25 %E4%B8%AD%E5%9B%BD%E9%93%B6%E8%A1%8C601988 %E…</description>
     </item>
     <item>
       <title>[个股深度报告] 2026-08-25-比亚迪002594</title>
-      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-比亚迪002594.md</link>
-      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-比亚迪002594.md</guid>
+      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-比亚迪002594-完整报告.html</link>
+      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-比亚迪002594-完整报告.html</guid>
       <pubDate>Tue, 25 Aug 2026 08:00:00 +0800</pubDate>
-      <description>体检 55.1 分 · 观望中性 ｜ 2 派看多 / 4 派看空 ｜ 41 位评委参与：11 看多 · 12 中性 · 18 看空 📋 首次覆盖： 持有（Neutral） · 目标价 ¥100.22 · 空间 +10% 🛡️ 杀猪盘检测：🟢🟢 安全 ｜ 风格识别：量化因子型 📊 打开完整交互报告（Bloomberg 风格 HTML） (2026 08 25 比亚迪002594 完整报告.html) 赵老哥、孙哥、佛山无影脚等 F 组游资全部标记&quot;不适合&quot;—— 市值 8329 亿超出游资射程 （游资只玩小盘高流动性票）。 这只票的分歧本质是 风格错配 ：跌出深度价值的比亚迪正中价值派下怀（PE …</description>
+      <description>体检 55.1 分 · 观望中性 ｜ 2 派看多 / 4 派看空 ｜ 41 位评委参与：11 看多 · 12 中性 · 18 看空 📋 首次覆盖： 持有（Neutral） · 目标价 ¥100.22 · 空间 +10% 🛡️ 杀猪盘检测：🟢🟢 安全 ｜ 风格识别：量化因子型 📊 打开完整交互报告（Bloomberg 风格 HTML） (https://fumolan.github.io/uzi reports/reports/uzi/2026 08 25 %E6%AF%94%E4%BA%9A%E8%BF%AA002594 %E5%AE%8C%E6%95%B4%E6%8A%A5%E5%91%8A…</description>
     </item>
   </channel>
 </rss>

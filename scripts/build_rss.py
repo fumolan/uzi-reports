@@ -54,7 +54,13 @@ def build_channel(slug, name, items, out_file):
     for dstr, path, label in items[:40]:
         dt = parse_date(dstr)
         pub = format_datetime(dt) if dt else now
-        url = f"{SITE}/{path}"
+        # RSS条目直链完整HTML报告(存在同名 xxx-完整报告.html 时), 省去md中转
+        link_path = path
+        if path.endswith(".md"):
+            html_guess = path[:-3] + "-完整报告.html"
+            if os.path.exists(os.path.join(REPO, html_guess)):
+                link_path = html_guess
+        url = f"{SITE}/{link_path}"
         md_abs = os.path.join(REPO, path)
         summary = md_to_summary(md_abs)
         entries.append(f"""    <item>
@@ -67,7 +73,7 @@ def build_channel(slug, name, items, out_file):
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{esc('📊 ' + name + ' · 股市六法简报')}</title>
+    <title>{esc(name)}</title>
     <link>{SITE}/</link>
     <atom:link href="{SITE}/{'rss/' + slug + '.xml' if slug != '_all' else 'rss.xml'}" rel="self" type="application/rss+xml"/>
     <description>{esc(name + ' — AI Agent 自动生成')}</description>
@@ -104,7 +110,7 @@ def main():
     # 全站 feed(混排取最新40)
     all_items.sort(key=lambda x: x[0], reverse=True)
     all_items = [(d, p, f"[{n}] {l}") for d, p, l, n in all_items]
-    build_channel("_all", "全站情报聚合", all_items,
+    build_channel("_all", "🎭 UZI 深度报告", all_items,
                   os.path.join(REPO, "rss.xml"))
 
 if __name__ == "__main__":
