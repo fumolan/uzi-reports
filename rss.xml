@@ -6,8 +6,15 @@
     <atom:link href="https://fumolan.github.io/uzi-reports/rss.xml" rel="self" type="application/rss+xml"/>
     <description>🎭 UZI 深度报告 — AI Agent 自动生成</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 25 Aug 2026 23:34:22 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 10:19:16 +0800</lastBuildDate>
     <generator>my-bot build_rss.py</generator>
+    <item>
+      <title>[个股深度报告] 2026-08-29-网易NTES</title>
+      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-网易NTES-完整报告.html</link>
+      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-网易NTES-完整报告.html</guid>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0800</pubDate>
+      <description>体检 48 分 · 谨慎 ｜ 40 位评委参与：3 看多 · 13 中性 · 24 看空（看空主力为不覆盖美股的游资组与数据受限的技术派） 现价 $122.76 ｜ 市值 $786 亿 ｜ PE 16.4（近五年约 35% 分位）｜ PB 3.5（约 12% 分位·修正后） 📋 DCF 修正后低估约 28% · LBO IRR 22% ｜ ROE 连续四年 20%±（19.4/23.7/21.4/21.1） 🛡️ 杀猪盘检测：🟡🟡 注意（中概股常规风险提示） 📊 打开完整交互报告（Bloomberg 风格 HTML） (https://fumolan.github.io/uzi reports…</description>
+    </item>
     <item>
       <title>[个股深度报告] 2026-08-25-中国银行601988</title>
       <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-25-中国银行601988-完整报告.html</link>
