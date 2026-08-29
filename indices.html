@@ -79,7 +79,7 @@ fetch('reports.json').then(r=>r.json()).then(idx=>{
     const mch=label.match(/^\d{4}-\d{2}-\d{2}-(.+)$/);
     if(mch){const nm=mch[1].replace(/\d{5,}[A-Z]*/g,'').replace(/完整报告/g,'');
       if(nm)repMap[nm]=it.path.replace(/\.md$/,'-完整报告.html');}
-  }));
+  })));
   console.log('报告映射',Object.keys(repMap).length,'篇');
 }).catch(()=>{});
 

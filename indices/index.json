@@ -1,67 +1,81 @@
 {
- "updated": "2026-08-29 22:38",
+ "updated": "2026-08-29 22:52",
  "indices": [
+  {
+   "code": "000016.SH",
+   "name": "上证50",
+   "file": "indices/000016.json",
+   "updated": "2026-08-29 22:52",
+   "count": 50
+  },
+  {
+   "code": "000300.SH",
+   "name": "沪深300",
+   "file": "indices/000300.json",
+   "updated": "2026-08-29 22:52",
+   "count": 300
+  },
   {
    "code": "886090.TI",
    "name": "智谱AI概念",
    "file": "indices/886090.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 71
   },
   {
    "code": "881121.TI",
    "name": "半导体",
    "file": "indices/881121.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 187
   },
   {
    "code": "881130.TI",
    "name": "计算机设备",
    "file": "indices/881130.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 83
   },
   {
    "code": "884296.TI",
    "name": "横向通用软件",
    "file": "indices/884296.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 41
   },
   {
    "code": "881155.TI",
    "name": "银行",
    "file": "indices/881155.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 42
   },
   {
    "code": "884249.TI",
    "name": "国有大型银行",
    "file": "indices/884249.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 6
   },
   {
    "code": "881125.TI",
    "name": "汽车整车",
    "file": "indices/881125.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 23
   },
   {
    "code": "881281.TI",
    "name": "电池",
    "file": "indices/881281.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 106
   },
   {
    "code": "881275.TI",
    "name": "游戏",
    "file": "indices/881275.json",
-   "updated": "2026-08-29 22:38",
+   "updated": "2026-08-29 22:52",
    "count": 24
   }
  ]

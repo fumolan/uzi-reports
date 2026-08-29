@@ -14,6 +14,8 @@ from datetime import datetime
 
 API = "https://fuyao.aicubes.cn/api"
 INDICES = [
+    ("000016.SH", "上证50"),
+    ("000300.SH", "沪深300"),
     ("886090.TI", "智谱AI概念"),
     ("881121.TI", "半导体"),
     ("881130.TI", "计算机设备"),
