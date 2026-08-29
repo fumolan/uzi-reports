@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>指数热力 · 成分股方格</title>
+<style>
+:root{--accent:#8e44ad;--accent-light:#f5eef8;--bg:#f5f6f8;--card:#fff;--border:#e8e8e8;--up:#d93025;--down:#0a8f4e;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:#1a1a2e;padding:16px;max-width:1200px;margin:0 auto}
+header{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.brand{font-size:20px;font-weight:800;color:var(--accent)}
+.brand small{font-size:12px;color:#666;font-weight:400;margin-left:6px}
+nav{margin-left:auto;display:flex;gap:10px;font-size:13px}
+nav a{color:var(--accent);text-decoration:none}
+.help{background:var(--accent-light);border-radius:10px;padding:10px 14px;font-size:12.5px;color:#555;line-height:1.7;margin-bottom:14px}
+.idx-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.idx-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 16px;cursor:pointer;transition:.15s;user-select:none}
+.idx-card:hover{border-color:var(--accent);box-shadow:0 2px 8px rgba(142,68,173,.15)}
+.idx-card.on{background:var(--accent);color:#fff}
+.idx-card.on small{color:#e9d5f5}
+.idx-card b{font-size:14px;display:block}
+.idx-card small{font-size:11px;color:#999}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.panel-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.panel-head h2{font-size:15px}
+.panel-head .meta{font-size:11.5px;color:#999}
+.toolbar{margin-left:auto;display:flex;gap:8px}
+button{font-size:12px;padding:5px 12px;border-radius:6px;border:1px solid var(--border);background:#fff;cursor:pointer;color:#444}
+button.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.on{border-color:var(--accent);color:var(--accent);font-weight:600}
+#grid{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.cell{border-radius:10px;padding:8px 10px;color:#fff;cursor:pointer;position:relative;transition:transform .12s;line-height:1.25;min-width:76px}
+.cell:hover{transform:scale(1.06)}
+.cell .n{font-weight:700;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cell .w{font-size:10.5px;opacity:.9}
+.cell .chg{font-size:10.5px}
+.cell .heat{position:absolute;top:-7px;right:-5px;background:#ff6d00;color:#fff;font-size:10px;border-radius:8px;padding:1px 6px;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.cell .rep{position:absolute;top:-7px;left:-5px;background:#1d4ed8;color:#fff;font-size:10px;border-radius:8px;padding:1px 5px;text-decoration:none;font-weight:700}
+.empty{color:#999;font-size:13px;padding:30px;text-align:center}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#333;color:#fff;padding:8px 18px;border-radius:20px;font-size:13px;opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:.95}
+footer{margin-top:16px;font-size:11.5px;color:#999;text-align:center}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">🧭 指数热力<small>成分股方格 · 点击记热度</small></div>
+  <nav><a href="index.html">← 报告站</a></nav>
+</header>
+<div class="help">
+  <b>玩法</b>：点指数 → 看成分股方格（<b>方格大小=当日成交额权重</b>，红涨绿跌，从大到小排列）→ 点你关注的股票（右上角橙色角标=你的关注次数，会记在本浏览器）→ 攒一批后点<b>「复制关注清单」</b>发给 AI，UZI 报告按热度优先发布；带 <span style="color:#1d4ed8;font-weight:700">📊</span> 角标的股票已有深度报告，点击直达。
+</div>
+<div class="idx-row" id="idxRow"><span class="empty">加载中…</span></div>
+<div class="panel" id="panel" style="display:none">
+  <div class="panel-head">
+    <h2 id="pTitle"></h2><span class="meta" id="pMeta"></span>
+    <div class="toolbar">
+      <button id="byW" class="on">按权重</button>
+      <button id="byH">按我的热度</button>
+      <button id="export" class="pri">复制关注清单</button>
+    </div>
+  </div>
+  <div id="grid"></div>
+</div>
+<div class="toast" id="toast"></div>
+<footer>数据源:同花顺扶摇API(成分与成交额) · 权重=成分股当日成交额占比 · 热度计数存于本地浏览器</footer>
+<script>
+const LS='uzi_index_clicks';
+const clicks=JSON.parse(localStorage.getItem(LS)||'{}');
+let cur=null,sortBy='w',repMap={};
+const save=()=>localStorage.setItem(LS,JSON.stringify(clicks));
+const toast=t=>{const e=document.getElementById('toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1600);};
+
+// 报告映射: reports.json 的md路径 → {股票名: html链接}
+fetch('reports.json').then(r=>r.json()).then(idx=>{
+  (idx.categories||[]).forEach(c=>c.months.forEach(m=>m.items.forEach(it=>{
+    const label=it.label||it.name||''; // 形如 2026-08-29-金山办公688111
+    const mch=label.match(/^\d{4}-\d{2}-\d{2}-(.+)$/);
+    if(mch){const nm=mch[1].replace(/\d{5,}[A-Z]*/g,'').replace(/完整报告/g,'');
+      if(nm)repMap[nm]=it.path.replace(/\.md$/,'-完整报告.html');}
+  }));
+  console.log('报告映射',Object.keys(repMap).length,'篇');
+}).catch(()=>{});
+
+function repLink(name){
+  for(const k in repMap){if(name.includes(k)||k.includes(name))return repMap[k];}
+  return null;
+}
+
+async function loadIdx(){
+  const r=await fetch('indices/index.json');const d=await r.json();
+  const row=document.getElementById('idxRow');row.innerHTML='';
+  d.indices.forEach((it,i)=>{
+    const c=document.createElement('div');c.className='idx-card';
+    c.innerHTML=`<b>${it.name}</b><small>${it.count}只 · ${it.updated.slice(5)}</small>`;
+    c.onclick=()=>select(c,it);row.appendChild(c);
+    if(i===0)select(c,it);
+  });
+}
+async function select(card,it){
+  document.querySelectorAll('.idx-card').forEach(x=>x.classList.remove('on'));
+  card.classList.add('on');
+  const r=await fetch(it.file);const d=await r.json();
+  cur=d;sortBy='w';
+  document.getElementById('byW').classList.add('on');
+  document.getElementById('byH').classList.remove('on');
+  document.getElementById('panel').style.display='';
+  document.getElementById('pTitle').textContent=`${d.name} ${d.code}`;
+  document.getElementById('pMeta').textContent=`${d.count}只成分 · 显前${d.stocks.length} · ${d.weight_basis} · ${d.updated}`;
+  render();
+}
+function render(){
+  const g=document.getElementById('grid');g.innerHTML='';
+  const list=[...cur.stocks];
+  if(sortBy==='h')list.sort((a,b)=>(clicks[b.c]||0)-(clicks[a.c]||0));
+  const wmax=list[0]?list[0].w:1;
+  list.forEach(s=>{
+    const size=Math.round(72+78*Math.sqrt((s.w||0.01)/(wmax||1)));
+    const el=document.createElement('div');el.className='cell';
+    const up=(s.chg||0)>=0;
+    const bg=up?`rgba(217,48,37,${0.35+0.55*Math.min((s.chg||0)/6,1)})`:`rgba(10,143,78,${0.35+0.55*Math.min(-(s.chg||0)/6,1)})`;
+    el.style.cssText=`width:${size}px;min-height:${Math.round(size*0.62)}px;background:${bg};font-size:${Math.round(size/7.2)}px`;
+    const h=clicks[s.c]||0;
+    let html=`<span class="n">${s.n}</span><span class="w">${s.w}%</span><br><span class="chg">${up?'▲':'▼'}${Math.abs(s.chg).toFixed(1)}%</span>`;
+    if(h)html+=`<span class="heat">🔥${h}</span>`;
+    const rl=repLink(s.n);
+    if(rl)html+=`<a class="rep" href="${rl}" title="查看UZI报告" onclick="event.stopPropagation()">📊</a>`;
+    el.innerHTML=html;
+    el.onclick=()=>{clicks[s.c]=(clicks[s.c]||0)+1;save();toast(`${s.n} 关注 +1（${clicks[s.c]}）`);render();};
+    g.appendChild(el);
+  });
+  if(!list.length)g.innerHTML='<span class="empty">无数据</span>';
+}
+document.getElementById('byW').onclick=e=>{sortBy='w';e.target.classList.add('on');document.getElementById('byH').classList.remove('on');render();};
+document.getElementById('byH').onclick=e=>{sortBy='h';e.target.classList.add('on');document.getElementById('byW').classList.remove('on');render();};
+document.getElementById('export').onclick=async()=>{
+  const d=Object.entries(clicks).sort((a,b)=>b[1]-a[1]).reduce((o,[k,v])=>(o[k]=v,o),{});
+  const txt=JSON.stringify(d);
+  try{await navigator.clipboard.writeText(txt);toast('关注清单已复制，发给AI即可按热度出报告');}
+  catch(e){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();toast('已复制');}
+};
+loadIdx();
+</script>
+</body>
+</html>
