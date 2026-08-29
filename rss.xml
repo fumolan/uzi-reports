@@ -6,8 +6,15 @@
     <atom:link href="https://fumolan.github.io/uzi-reports/rss.xml" rel="self" type="application/rss+xml"/>
     <description>🎭 UZI 深度报告 — AI Agent 自动生成</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 29 Aug 2026 10:19:16 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Aug 2026 21:43:43 +0800</lastBuildDate>
     <generator>my-bot build_rss.py</generator>
+    <item>
+      <title>[个股深度报告] 2026-08-29-智谱AI概念指数886090</title>
+      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-智谱AI概念指数886090-完整报告.html</link>
+      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-智谱AI概念指数886090-完整报告.html</guid>
+      <pubDate>Sat, 29 Aug 2026 08:00:00 +0800</pubDate>
+      <description>⚠️ 指数专题说明 ：智谱 AI 公司本身未上市，本报告分析的是同花顺&quot;智谱AI概念&quot;指数（71 只成分股）。指数无财报维度，价值派评委按&quot;无法估值&quot;处理——38 分的实质是&quot; 此标的不可按个股逻辑估值 &quot;，不是&quot;看空 AI 产业&quot;。 体检 38 分 · 谨慎 ｜ 40 位评委：2 看多 · 5 中性 · 33 看空 ｜ 数据完整性按指数口径补齐（技术面实测） 现位 1336 ｜ Stage 4 下行 ｜ RSI 36 ｜ 距 52 周高点 30.9% ｜ 日成交 371 亿 📊 打开完整交互报告（Bloomberg 风格 HTML） (https://fumolan.github.io/uz…</description>
+    </item>
     <item>
       <title>[个股深度报告] 2026-08-29-网易NTES</title>
       <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-网易NTES-完整报告.html</link>
