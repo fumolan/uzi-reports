@@ -6,8 +6,15 @@
     <atom:link href="https://fumolan.github.io/uzi-reports/rss.xml" rel="self" type="application/rss+xml"/>
     <description>🎭 UZI 深度报告 — AI Agent 自动生成</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 29 Aug 2026 22:24:10 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 07:28:47 +0800</lastBuildDate>
     <generator>my-bot build_rss.py</generator>
+    <item>
+      <title>[个股深度报告] 2026-09-02-药明康德603259</title>
+      <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-09-02-药明康德603259-完整报告.html</link>
+      <guid isPermaLink="true">https://fumolan.github.io/uzi-reports/reports/uzi/2026-09-02-药明康德603259-完整报告.html</guid>
+      <pubDate>Wed, 02 Sep 2026 08:00:00 +0800</pubDate>
+      <description>体检 64 分 · 观望偏多 ｜ 41 位评委：17 看多 · 11 中性 · 13 看空——全部分析标的中买入人数最高（11 强买 + 5 买入） 📋 DCF 低估 15% · LBO IRR 22% 双确认 ｜ 覆盖率 94%（行业增速已补） 🛡️ 杀猪盘检测：🟢🟢 安全 📊 打开完整交互报告（Bloomberg 风格 HTML） (https://fumolan.github.io/uzi reports/reports/uzi/2026 09 02 %E8%8D%AF%E6%98%8E%E5%BA%B7%E5%BE%B7603259 %E5%AE%8C%E6%95%B4%E6%8A%A…</description>
+    </item>
     <item>
       <title>[个股深度报告] 2026-08-29-中科曙光603019</title>
       <link>https://fumolan.github.io/uzi-reports/reports/uzi/2026-08-29-中科曙光603019-完整报告.html</link>
